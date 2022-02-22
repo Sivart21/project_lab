@@ -1,0 +1,50 @@
+<div class="container">
+    <!-- <h2>{{title}}</h2> -->
+    <h2>Games</h2>
+    <div>
+        <div class="h4">Search Games</div>
+        <input type="text" placeholder="Search Games">
+        <button>Search</button>
+    </div>
+    <h2>Featured Games</h2>
+    <div class="filtered-games">
+        <ul class="games">
+            <li *ngFor="let game of games">
+                <!-- <div [class.selected]=" game===selectedGame"> -->
+                <div *ngIf="game.type==='adventure'">
+                    <h3>{{game.name}}</h3>
+                    <div>{{game.price}} UAH</div>
+                    <span class="badge">{{game.id}}</span>
+                    <span class="name">{{game.name}}</span>
+                    <div>{{game.text}}</div>
+                    <button type="button" (click)="onSelect(game)">Add to Library</button>
+                </div>
+            </li>
+        </ul>
+        <div class="filter">
+            <h3>Filter by price</h3>
+            <input type="range" id="price-range" name="price-range" min="0" max="100">
+            <label for="price-range">Any price</label>
+
+            <div>
+                <h3>Filter by tag</h3>
+                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                <label for="">Indie</label>
+                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                <label for="">Action</label>
+                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                <label for="">Adventure</label>
+
+            </div>
+        </div>
+    </div>
+    <!-- пусть пока будет, позже удалить -->
+    <!-- <div *ngIf="selectedGame">
+        <h2>{{selectedGame.name}} Details</h2>
+        <div><span>id: </span>{{selectedGame.id}}</div>
+        <div>
+            <label for="game-name">Game name: </label>
+            <input id="game-name" [(ngModel)]="selectedGame.name" placeholder="name">
+        </div>
+    </div> -->
+</div>

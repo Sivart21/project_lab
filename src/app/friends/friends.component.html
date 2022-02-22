@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Friends</h2>
+    <div>
+        <div class="h4">Search Friends</div>
+        <input type="text" placeholder="Search Friend" [(ngModel)]="search" (keyup)="changeCondition(search)">
+        <button class="accent">Search</button>
+        <!-- (click)="changeCondition(search)" -->
+
+        <div *ngIf="condition; else searchFriends">
+            <h2>My Friends</h2>
+            <div *ngFor="let friend of friends">
+                <div class="friends-item" *ngIf="friend.friendStatus">
+                    <span class="name">{{friend.name}}</span>
+                    <button class="warn" type="button" (click)="removeFriend(friend)">Remove Friend</button>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #searchFriends>
+            <div class="search-friends">
+                <h2>Search Friends: {{search}}</h2>
+                <div *ngFor="let friend of friends">
+                    <div class="friends-item" *ngIf="friend.name.includes(search) && !friend.friendStatus">
+                        <span class="name">{{friend.name}}</span>
+                        <button class="accent" type="button" (click)="addFriend(friend)">Add Friend</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</div>
