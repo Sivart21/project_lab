@@ -19,8 +19,9 @@ export class FriendsComponent implements OnInit {
   changeCondition(currentSearch: string) {
     if (currentSearch === '') {
       this.condition = true;
+    } else {
+      this.condition = false;
     }
-    this.condition = false;
   }
 
   constructor() { }

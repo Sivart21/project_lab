@@ -1,8 +1,27 @@
+.container{
+    padding: 0 100px;
+}
+
+.search-block{
+    display: flex;
+    flex-wrap: wrap;
+    h4{
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    input{
+        flex-grow: 1;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+}
+
 .friends-item{
     padding: 10px;
     border: 1px solid black;
     margin-bottom: 10px;
-    // box-shadow: black 3px;
+    box-shadow: 3px 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,8 +29,13 @@
 }
 
 button{
+    border: none;
     padding: 10px 20px;
+    border-radius: 10px;
     color: #ffffff;
+    &:hover{
+        cursor: pointer;
+    }
 }
 .warn{
     background:#FF6E6E ;

@@ -1,10 +1,13 @@
 <div class="container">
     <h2>Friends</h2>
     <div>
-        <div class="h4">Search Friends</div>
-        <input type="text" placeholder="Search Friend" [(ngModel)]="search" (keyup)="changeCondition(search)">
-        <button class="accent">Search</button>
-        <!-- (click)="changeCondition(search)" -->
+        <div class="search-block">
+            <h4>Search Friends</h4>
+            <input type="text" placeholder="Search Friends" [(ngModel)]="search" (keyup)="changeCondition(search)">
+            <button class="accent" (click)="changeCondition(search)">Search</button>
+            <!-- (click)="changeCondition(search)" -->
+            <!-- (keyup)="changeCondition(search)" -->
+        </div>
 
         <div *ngIf="condition; else searchFriends">
             <h2>My Friends</h2>

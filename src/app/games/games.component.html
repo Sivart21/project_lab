@@ -2,9 +2,13 @@
     <!-- <h2>{{title}}</h2> -->
     <h2>Games</h2>
     <div>
-        <div class="h4">Search Games</div>
-        <input type="text" placeholder="Search Games">
-        <button>Search</button>
+        <div class="search-block">
+            <h4>Search Games</h4>
+            <input type="text" placeholder="Search Games">
+            <button class="accent">Search</button>
+            <!-- (click)="changeCondition(search)" -->
+            <!-- (keyup)="changeCondition(search)" -->
+        </div>
     </div>
     <h2>Featured Games</h2>
     <div class="filtered-games">
@@ -12,28 +16,38 @@
             <li *ngFor="let game of games">
                 <!-- <div [class.selected]=" game===selectedGame"> -->
                 <div *ngIf="game.type==='adventure'">
-                    <h3>{{game.name}}</h3>
-                    <div>{{game.price}} UAH</div>
-                    <span class="badge">{{game.id}}</span>
-                    <span class="name">{{game.name}}</span>
-                    <div>{{game.text}}</div>
-                    <button type="button" (click)="onSelect(game)">Add to Library</button>
+                    <div class="game-block-heading">
+                        <h3>{{game.name}}</h3>
+                        <div class="price">{{game.price}} UAH</div>
+                    </div>
+                    <div class="text">{{game.text}}
+                        <button class="accent" type="button" (click)="onSelect(game)">Add to Library</button>
+                    </div>
                 </div>
             </li>
         </ul>
-        <div class="filter">
-            <h3>Filter by price</h3>
-            <input type="range" id="price-range" name="price-range" min="0" max="100">
-            <label for="price-range">Any price</label>
-
+        <div class="filter-params">
+            <div>
+                <h3>Filter by price</h3>
+                <input type="range" id="price-range" name="price-range" min="0" max="100" value="100">
+                <br>
+                <label for="price-range">Any price</label>
+            </div>
             <div>
                 <h3>Filter by tag</h3>
-                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
-                <label for="">Indie</label>
-                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
-                <label for="">Action</label>
-                <input type="checkbox" class="custom-checkbox" id="" name="" checked>
-                <label for="">Adventure</label>
+                <div>
+                    <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                    <label for="">Indie</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                    <label for="">Action</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="custom-checkbox" id="" name="" checked>
+                    <label for="">Adventure</label>
+                </div>
+
 
             </div>
         </div>
